@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cwhtahsibtb75"
-path="res://.godot/imported/car_1.glb-7012b1527e9fab8716775fefe9d879e0.scn"
+path="res://.godot/imported/citroen_ax_proto.glb-75e64b7acbdcd95e74550f9ad6f3cdd8.scn"
 
 [deps]
 
-source_file="res://3d models/car_1_proto/car_1.glb"
-dest_files=["res://.godot/imported/car_1.glb-7012b1527e9fab8716775fefe9d879e0.scn"]
+source_file="res://cars/3d models/citroen_ax_proto/citroen_ax_proto.glb"
+dest_files=["res://.godot/imported/citroen_ax_proto.glb-75e64b7acbdcd95e74550f9ad6f3cdd8.scn"]
 
 [params]
 

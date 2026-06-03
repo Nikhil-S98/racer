@@ -1,3 +1,70 @@
 [gd_scene format=3 uid="uid://cbto5d5inv82g"]
 
+[ext_resource type="PackedScene" uid="uid://b5lktgcjd850j" path="res://citroen_ax.tscn" id="1_ig7tw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_top_color = Color(0.6393802, 0.5936523, 0.9795781, 1)
+sky_horizon_color = Color(1.4078846, 1.3964527, 1.4929341, 1)
+ground_bottom_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
+ground_horizon_color = Color(1.4078846, 1.3964527, 1.4929341, 1)
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(135, 0.001, 136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
+material = SubResource("StandardMaterial3D_0xm2m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(0.9272256, 0.29202697, 0.9711645, 1)
+
 [node name="Main" type="Node3D" unique_id=92768189]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1123770225]
+environment = SubResource("Environment_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=117439739]
+transform = Transform3D(0.18223545, 0.62011504, -0.76305145, 0, 0.7760464, 0.6306758, 0.9832549, -0.11493149, 0.14142317, 0, 0, 0)
+light_color = Color(0.7414723, 0.729277, 0.9287918, 1)
+light_energy = 3.4
+shadow_enabled = true
+directional_shadow_max_distance = 196.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=130272532]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=928528694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1507004069]
+transform = Transform3D(67.64, 0, 0, 0, 0.37, 0, 0, 0, 67.64, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ig7tw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1013970301]
+transform = Transform3D(1, 0, 0, 0, 0.96592593, -0.25881907, 0, 0.25881907, 0.96592593, -4, -0.8529525, -16.146866)
+use_collision = true
+size = Vector3(23, 6, 22)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=481938669]
+transform = Transform3D(1, 0, 0, 0, 0.86602545, -0.5, 0, 0.5, 0.86602545, -4, 3.958781, 21.091652)
+use_collision = true
+size = Vector3(23, 6, 36)
+material = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="CitroenAX" parent="." unique_id=1129266578 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07532823, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CitroenAX" unique_id=256524484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9246716, -2)

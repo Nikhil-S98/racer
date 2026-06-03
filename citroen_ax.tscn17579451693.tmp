@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://b5lktgcjd850j"]
+
+[ext_resource type="PackedScene" uid="uid://cwhtahsibtb75" path="res://cars/3d models/citroen_ax_proto/citroen_ax_proto.glb" id="1_id6or"]
+[ext_resource type="Script" uid="uid://btw7wae67u21w" path="res://cars/car_scripts/base_car.gd" id="1_kt77x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt77x"]
+size = Vector3(4.0946045, 3, 9.434631)
+
+[node name="CitroenAX" type="RigidBody3D" unique_id=1129266578 node_paths=PackedStringArray("tires")]
+collision_layer = 2
+script = ExtResource("1_kt77x")
+tires = [NodePath("citroen_ax_proto/tire_bl/RayCastBL"), NodePath("citroen_ax_proto/tire_br/RayCastBR"), NodePath("citroen_ax_proto/tire_fl/RayCastFL"), NodePath("citroen_ax_proto/tire_fr/RayCastFR")]
+spring_strength = null
+spring_damping = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=984539641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068969727, 2.1778564, -0.1621933)
+shape = SubResource("BoxShape3D_kt77x")
+
+[node name="citroen_ax_proto" parent="." unique_id=1253214905 instance=ExtResource("1_id6or")]
+
+[node name="shell" parent="citroen_ax_proto" index="0" unique_id=1351428993]
+layers = 2
+
+[node name="tire_bl" parent="citroen_ax_proto" index="1" unique_id=1933392372]
+layers = 2
+
+[node name="RayCastBL" type="RayCast3D" parent="citroen_ax_proto/tire_bl" index="0" unique_id=1459709309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0)
+target_position = Vector3(0, -1.57, 0)
+
+[node name="tire_br" parent="citroen_ax_proto" index="2" unique_id=1843990546]
+layers = 2
+
+[node name="RayCastBR" type="RayCast3D" parent="citroen_ax_proto/tire_br" index="0" unique_id=219929793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0)
+target_position = Vector3(0, -1.57, 0)
+
+[node name="tire_fl" parent="citroen_ax_proto" index="3" unique_id=947235593]
+layers = 2
+
+[node name="RayCastFL" type="RayCast3D" parent="citroen_ax_proto/tire_fl" index="0" unique_id=593694202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0)
+target_position = Vector3(0, -1.57, 0)
+
+[node name="tire_fr" parent="citroen_ax_proto" index="4" unique_id=1891635246]
+layers = 2
+
+[node name="RayCastFR" type="RayCast3D" parent="citroen_ax_proto/tire_fr" index="0" unique_id=1769919614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.785, 0)
+target_position = Vector3(0, -1.57, 0)
+
+[editable path="citroen_ax_proto"]
